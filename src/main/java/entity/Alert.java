@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ALERTS")
@@ -12,7 +13,6 @@ public class Alert {
     private String id;
 
     @OneToOne
-    @JoinColumn(name="id")
     private Sensor sensor;
 
     @Basic(optional = false)
@@ -22,14 +22,78 @@ public class Alert {
     private String criticity;
 
     @Basic(optional = false)
-    private long creationDate;
+    private Timestamp creationDate;
 
     @Basic(optional = false)
-    private long beginDate;
+    private Timestamp beginDate;
 
     @Basic(optional = false)
-    private long endDate;
+    private Timestamp endDate;
 
     @Basic(optional = false)
     private long treshold;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCriticity() {
+        return criticity;
+    }
+
+    public void setCriticity(String criticity) {
+        this.criticity = criticity;
+    }
+
+    public Timestamp getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Timestamp creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Timestamp getBeginDate() {
+        return beginDate;
+    }
+
+    public void setBeginDate(Timestamp beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public Timestamp getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Timestamp endDate) {
+        this.endDate = endDate;
+    }
+
+    public long getTreshold() {
+        return treshold;
+    }
+
+    public void setTreshold(long treshold) {
+        this.treshold = treshold;
+    }
 }

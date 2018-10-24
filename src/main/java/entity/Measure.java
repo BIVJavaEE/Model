@@ -1,12 +1,7 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="MEASURES")
@@ -16,69 +11,45 @@ public class Measure{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false, updatable = false, insertable = false)
 	private int id;
-	
-	@Basic(optional = false)
-	private int sensorId;
-	
-	@Basic(optional = false)
-	private String type;
-	
+
+	@OneToOne
+	private Sensor sensor;
+
 	@Basic(optional = false)
 	private double value;
-	
+
 	@Basic(optional = false)
-	private String unit;
-	
-	@Basic(optional = false)
-	private String timestamp;
+	private Timestamp timestamp;
 
 	public int getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public int getSensorId() {
-		return this.sensorId;
+	public Sensor getSensor() {
+		return sensor;
 	}
 
-	public void setSensorId(int sensorId) {
-		this.sensorId = sensorId;
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
+	public void setSensor(Sensor sensor) {
+		this.sensor = sensor;
 	}
 
 	public double getValue() {
-		return this.value;
+		return value;
 	}
 
 	public void setValue(double value) {
 		this.value = value;
 	}
 
-	public String getUnit() {
-		return this.unit;
+	public Timestamp getTimestamp() {
+		return timestamp;
 	}
 
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-
-	public String getTimestamp() {
-		return this.timestamp;
-	}
-
-	public void setTimestamp(String timestamp) {
+	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
-	
-	
 }

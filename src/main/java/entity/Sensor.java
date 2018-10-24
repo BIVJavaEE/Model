@@ -16,24 +16,56 @@ public class Sensor{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false, updatable = false, insertable = false)
 	private int id;
-	 
+
 	@Basic(optional = false)
-	private String location;
- 
-	public int getId(){
-		return this.id;
+	private String name;
+
+	@Basic(optional = false)
+	private String type;
+
+	@Basic(optional = false)
+	private double latitude;
+
+	@Basic(optional = false)
+	private double longitude;
+
+	public int getId() {
+		return id;
 	}
-	
-	public void setId(int id){
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getLocation() {
-		return this.location;
+
+	public String getName() {
+		return name;
 	}
-	
-	public void setLocation(String location) {
-		this.location = location;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
 }
