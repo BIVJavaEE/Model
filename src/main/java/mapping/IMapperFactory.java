@@ -2,7 +2,9 @@ package mapping;
 
 import java.util.Map;
 
-public interface IMapperFactory<T>{
+import entity.IEntity;
+
+public interface IMapperFactory<T extends IEntity>{
 	
 	public Mapper<T> createMapper(String database, Map<String, String> properties) throws MapperFactoryException;
 	

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="MEASURES")
-public class Measure{
+public class Measure implements IEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

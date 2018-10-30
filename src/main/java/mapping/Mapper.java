@@ -11,10 +11,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
 
+import entity.IEntity;
+
 /**
  * Entity - Database object mapping class
  */
-public class Mapper<T> implements IMapper<T>{
+public class Mapper<T extends IEntity> implements IMapper<T>{
 
 	private EntityManagerFactory factory;
 	

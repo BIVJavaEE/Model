@@ -5,7 +5,9 @@ import java.util.Map;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class MapperFactory<T> implements IMapperFactory<T>{
+import entity.IEntity;
+
+public class MapperFactory<T extends IEntity> implements IMapperFactory<T>{
 
 	public Mapper<T> createMapper(String database, Map<String, String> properties) throws MapperFactoryException{
 		Mapper<T> mapper = null;

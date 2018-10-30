@@ -7,7 +7,9 @@ import java.util.Map;
 import javax.persistence.EntityExistsException;
 import javax.persistence.TransactionRequiredException;
 
-public interface IMapper<T> {
+import entity.IEntity;
+
+public interface IMapper<T extends IEntity> {
 	
     /**
      * Select object by primary key
