@@ -1,19 +1,82 @@
 package mapping;
 
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.TransactionRequiredException;
 
 /**
  * Entity - Database object mapping class
  */
-public class Mapper<T> {
+public class Mapper<T> implements IMapper<T>{
 
 	private EntityManagerFactory factory;
 	
 	public Mapper(EntityManagerFactory factory) {
 		this.factory = factory;
+	}
+	
+   /**
+    * Select object by primary key
+    * @param entity Entity class
+    * @param primaryKey Primary key of the object
+    * @return Requested object
+    */
+	public T get(final Class<T> entity, final Serializable primaryKey) {
+        EntityManager manager = this.factory.createEntityManager();
+		T item = null;
+        try {
+			manager.getTransaction().begin();
+			item = manager.find(entity, primaryKey);
+			manager.getTransaction().commit();			
+		}catch(IllegalArgumentException | TransactionRequiredException e) {
+			manager.getTransaction().rollback();
+			throw e;
+		}catch(IllegalStateException e) {
+			System.out.println("Can't get data, can't use transaction on JTA entity manager: " + e.getMessage());
+			throw e;
+		}finally {
+			manager.close();
+		}
+        return item;
+    }
+	
+   /**
+    * Select objects
+    * @param query SQL query string
+    * @param parameters Parameters of the query
+    * @return Collection of requested objects
+    */
+	@SuppressWarnings("unchecked")
+    public Collection<T> select(String query, Map<String, T> parameters) {
+		EntityManager manager = this.factory.createEntityManager();
+		List<T> items = null;
+        try {
+			manager.getTransaction().begin();
+			Query querySQL = manager.createQuery(query);
+            if(parameters != null && !parameters.isEmpty()) {
+                for(Map.Entry<String, T> entry : parameters.entrySet()) {
+                    querySQL.setParameter(entry.getKey(), entry.getValue());
+                }
+            }
+            items = querySQL.getResultList();
+			manager.getTransaction().commit();			
+		}catch(IllegalArgumentException | TransactionRequiredException e) {
+			manager.getTransaction().rollback();
+			throw e;
+		}catch(IllegalStateException e) {
+			System.out.println("Can't get data, can't use transaction on JTA entity manager: " + e.getMessage());
+			throw e;
+		}finally {
+			manager.close();
+		}
+        return items;    
 	}
 	
 	/**
@@ -115,5 +178,5 @@ public class Mapper<T> {
 			manager.close();
 		}
 	}
-	
+    
 }

@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 
 public class MapperFactory<T> implements IMapperFactory<T>{
 
-		public Mapper<T> createMapper(String database, Map<String, String> properties) throws MapperFactoryException{
+	public Mapper<T> createMapper(String database, Map<String, String> properties) throws MapperFactoryException{
 		Mapper<T> mapper = null;
 		try {
 			EntityManagerFactory factory = Persistence.createEntityManagerFactory(database, properties);
