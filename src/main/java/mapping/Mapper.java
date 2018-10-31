@@ -1,6 +1,5 @@
 package mapping;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +29,7 @@ public class Mapper<T extends IEntity> implements IMapper<T>{
     * @param primaryKey Primary key of the object
     * @return Requested object
     */
-	public T get(final Class<T> entity, final Serializable primaryKey) {
+	public T get(final Class<T> entity, final int primaryKey) {
         EntityManager manager = this.factory.createEntityManager();
 		T item = null;
         try {

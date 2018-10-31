@@ -1,6 +1,5 @@
 package mapping;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public interface IMapper<T extends IEntity> {
      * @param primaryKey Primary key of the object
      * @return Requested object
      */
-	T get(final Class<T> entity, final Serializable primaryKey);
+	T get(final Class<T> entity, final int primaryKey);
 	
 	/**
 	 * Select objects
