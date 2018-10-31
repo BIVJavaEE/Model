@@ -24,7 +24,7 @@ public interface IMapper<T extends IEntity> {
 	 * @param parameters Parameters of the query
 	 * @return Collection of requested objects
 	 */   
-	Collection<T> select(String query, Map<String, T> parameters);
+	Collection<T> query(String query, Map<String, T> parameters);
 
 	/**
 	 * Saving entity information to database

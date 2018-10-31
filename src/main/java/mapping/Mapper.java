@@ -55,7 +55,7 @@ public class Mapper<T extends IEntity> implements IMapper<T>{
     * @return Collection of requested objects
     */
 	@SuppressWarnings("unchecked")
-    public Collection<T> select(String query, Map<String, T> parameters) {
+    public Collection<T> query(String query, Map<String, T> parameters) {
 		EntityManager manager = this.factory.createEntityManager();
 		List<T> items = null;
         try {
