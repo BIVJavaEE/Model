@@ -11,8 +11,8 @@ public class Alert implements IEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, updatable = false, insertable = false)
     private String id;
-
-    @OneToOne
+    
+    @OneToOne(cascade = {CascadeType.ALL})
     private Sensor sensor;
 
     @Basic(optional = false)

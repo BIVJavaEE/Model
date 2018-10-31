@@ -12,7 +12,7 @@ public class Measure implements IEntity{
 	@Column(unique = true, nullable = false, updatable = false, insertable = false)
 	private int id;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Sensor sensor;
 
 	@Basic(optional = false)

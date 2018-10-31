@@ -12,7 +12,7 @@ public class AlertTriggered implements IEntity{
     @Column(unique = true, nullable = false, updatable = false, insertable = false)
     private String id;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Alert alert;
 
     @Basic(optional = false)
