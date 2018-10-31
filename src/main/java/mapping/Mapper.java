@@ -49,7 +49,7 @@ public class Mapper<T extends IEntity> implements IMapper<T>{
     }
 	
    /**
-    * Select objects
+    * Query
     * @param query SQL query string
     * @param parameters Parameters of the query
     * @return Collection of requested objects
