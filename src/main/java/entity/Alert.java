@@ -12,7 +12,7 @@ public class Alert{
     @Column(unique = true, nullable = false, updatable = false, insertable = false)
     private String id;
     
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(fetch = FetchType.LAZY)
     private Sensor sensor;
 
     @Basic(optional = false)
