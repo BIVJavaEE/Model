@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="SENSORS")
-public class Sensor implements IEntity{
+public class Sensor{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

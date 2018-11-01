@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "ALERTS")
-public class Alert implements IEntity{
+public class Alert{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
