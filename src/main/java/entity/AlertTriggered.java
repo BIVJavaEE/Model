@@ -12,7 +12,7 @@ public class AlertTriggered{
     @Column(unique = true, nullable = false, updatable = false, insertable = false)
     private String id;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Alert alert;
 
     @Basic(optional = false)
