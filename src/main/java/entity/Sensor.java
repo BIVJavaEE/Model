@@ -13,9 +13,9 @@ import javax.persistence.Table;
 public class Sensor{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false, updatable = false, insertable = false)
-	private int id;
+	private Long id;
 
 	@Basic(optional = false)
 	private String name;
@@ -29,11 +29,11 @@ public class Sensor{
 	@Basic(optional = false)
 	private double longitude;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
