@@ -13,6 +13,7 @@ public class AlertTriggered{
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Column(nullable = false)
     private Alert alert;
 
     @Basic(optional = false)

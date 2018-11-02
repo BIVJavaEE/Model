@@ -13,6 +13,7 @@ public class Measure{
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@Column(nullable = false)
 	private Sensor sensor;
 
 	@Basic(optional = false)

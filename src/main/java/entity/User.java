@@ -11,10 +11,10 @@ public class User{
     @Column(unique = true, nullable = false, updatable = false, insertable = false)
     private Long id;
 
-    @Basic
+    @Basic(optional = false)
     private String name;
 
-    @Basic
+    @Basic(optional = false)
     private String password;
 
     public Long getId() {
