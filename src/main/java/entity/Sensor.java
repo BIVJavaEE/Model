@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Sensor{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false, updatable = false, insertable = false)
 	private int id;
 
