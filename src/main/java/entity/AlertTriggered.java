@@ -21,6 +21,10 @@ public class AlertTriggered{
     @Basic(optional = false)
     private boolean seen;
 
+    @OneToOne
+    @JoinColumn(name="id")
+    private Measure measure;
+
     public Long getId() {
         return id;
     }
@@ -51,5 +55,13 @@ public class AlertTriggered{
 
     public void setSeen(boolean seen) {
         this.seen = seen;
+    }
+
+    public Measure getMeasure() {
+        return measure;
+    }
+
+    public void setMeasure(Measure measure) {
+        this.measure = measure;
     }
 }
