@@ -22,7 +22,6 @@ public class AlertTriggered{
     private boolean seen;
 
     @OneToOne
-    @JoinColumn(name="id")
     private Measure measure;
 
     public Long getId() {
