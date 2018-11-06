@@ -18,7 +18,8 @@ public class AlertTriggered{
     @Basic(optional = false)
     private boolean seen;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Measure measure;
 
     public Long getId() {
