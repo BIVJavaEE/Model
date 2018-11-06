@@ -16,9 +16,6 @@ public class AlertTriggered{
     private Alert alert;
 
     @Basic(optional = false)
-    private Timestamp triggerDate;
-
-    @Basic(optional = false)
     private boolean seen;
 
     @OneToOne
@@ -38,14 +35,6 @@ public class AlertTriggered{
 
     public void setAlert(Alert alert) {
         this.alert = alert;
-    }
-
-    public Timestamp getTriggerDate() {
-        return triggerDate;
-    }
-
-    public void setTriggerDate(Timestamp triggerDate) {
-        this.triggerDate = triggerDate;
     }
 
     public boolean isSeen() {
